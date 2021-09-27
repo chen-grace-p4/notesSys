@@ -1,4 +1,8 @@
 rerun .o files to recompile since $make doesn't automatically recompile since it only compares the time modified for makefile
 
 **Memory more important in C
+a music file 5 mb large is read in 40 million 1s and 0s
+
+memory: computer part that contains any active data (open apps, files, OS, bg processes)
+NOT saved stuff on SSD, Hard Drive, Flash Drive, Floppy Disk...
 
