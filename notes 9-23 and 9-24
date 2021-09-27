@@ -1,0 +1,77 @@
+Compiling C 
+For Java...
+	you would create multiple files and the java compiler would pull all the classes referenced in each file. 
+	
+In C...
+	gcc leads to a SINGLE executable file
+	more complex than straight source code
+	three major pieces of gcc: preprocessor, compiler, linker
+	
+	Preprocessor
+		text replacement system
+		happens at text level NOT binary data
+		looks at source code and replaces some text 
+		preprocessor commands start with # and DO NOT end in ;
+		------------
+		#define TEXT REPLACEMENT
+		ex. 	#define PI 3.14
+			#define MESSAGE "hello!"
+			...
+			printf("%s, %f\n", MESSAGE, PI);
+		preprocessor turns that into printf("%s, %f\n", "hello!", 3.14);
+		#include <stdio.h> is a bunch of function headers including printf
+		--------------
+		can also be used to create something like a function
+		ex.	#define MAX(a,b) a > b ? a : b
+			...
+			MAX(x, y)
+		turns that into x > y ? x : y
+		which means if x is greater than y, then return x, else return y
+		---------------
+		#ifndef IDENTIFIER ... #endif is a conditional statement
+		if IDENTIFIER not defined, then include all lines of code up to the #endif
+		if IDENTIFIER is defined, skip everything up to #endif
+		ex. 	#ifndef PI
+			#define PI 3.14
+			#endif
+		which only defines PI if it wasn't defined before, prevents multiple times of defining
+	Compiler
+		turns C source code into binary code
+		result is NOT an executable program
+		only one C file compiled at a time (multi file program doesnt compile all files unlike java)
+		checks called functions against declared headers, but a function defined in a separate file will not have its code added
+		gcc -c <FILE> will run preprocessor and compile staes only -> create non-exe binary object file with extension of .o
+			since exe not created, you can successfully compile C file without main function
+			important for multiple files so you don't have multiple mains
+	Linker
+		combines compiled binary code from multiple files into single exe program
+		will automatically look for standard library source code or anything that's included using <>
+		looks for main, finds it, puts things together based on main
+		problem: multiple definitions for identifier(mostly function names) in different files will cause linker to fail
+		must find ONE definition for main
+	
+Way to compile...
+	if we had foo.c, goo.c, boo.c:
+		gcc foo.c goo.c boo.c
+			or	
+		gcc -c foo.c
+		gcc -c goo.c
+		gcc -c boo.c
+		gcc -o program foo.o goo.o boo.o
+	
+	Make
+		command line tool to automate compiling steps
+		only compiles modified files (or rely on modified files)
+		makefile specifies compiling instructions and file dependencies (running $ make looks for makefile)
+		Main parts:
+			Targets:Things to make (usually exe or .o)
+			Dependencies: Files or other targets needed to create a target
+			Rules: how to cfeate the target
+		will always run first target
+		recursively goes through dependencies
+		Will check modification time stamp and will run rules if target older than one of its dependencies
+		SYNTAX: 
+			target: dependency0 dependency1 dependency2...
+			TAB rule (actual character tab important like in python)
+			
+		homer.stuy.edu/~jadw/slides/#25

@@ -1,0 +1,4 @@
+rerun .o files to recompile since $make doesn't automatically recompile since it only compares the time modified for makefile
+
+**Memory more important in C
+

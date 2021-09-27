@@ -1,0 +1,41 @@
+Compiling C 
+For Java...
+	you would create multiple files and the java compiler would pull all the classes referenced in each file. 
+	
+In C...
+	gcc leads to a SINGLE executable file
+	more complex than straight source code
+	three major pieces of gcc: preprocessor, compiler, linker
+	
+	Preprocessor
+		text replacement system
+		happens at text level NOT binary data
+		looks at source code and replaces some text 
+		preprocessor commands start with # and DO NOT end in ;
+		------------
+		#define TEXT REPLACEMENT
+		ex. 	#define PI 3.14
+			#define MESSAGE "hello!"
+			...
+			printf("%s, %f\n", MESSAGE, PI);
+		preprocessor turns that into printf("%s, %f\n", "hello!", 3.14);
+		#include <stdio.h> is a bunch of function headers including printf
+		--------------
+		can also be used to create something like a function
+		ex.	#define MAX(a,b) a > b ? a : b
+			...
+			MAX(x, y)
+		turns that into x > y ? x : y
+		which means if x is greater than y, then return x, else return y
+		---------------
+		#ifndef IDENTIFIER ... #endif is a conditional statement
+		if IDENTIFIER not defined, then include all lines of code up to the #endif
+		if IDENTIFIER is defined, skip everything up to #endif
+		ex. 	#ifndef PI
+			#define PI 3.14
+			#endif
+		which only defines PI if it wasn't defined before, prevents multiple times of defining
+	Compiler
+		turns C source code into binary code
+		result is NOT an executable program
+		only one C file compiled at a time (multi file program doesnt compile all files unlike java)

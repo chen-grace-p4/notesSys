@@ -1,0 +1,7 @@
+control structures
+if (x=0), x=0 will return false, so if statement will fail
+function declaration
+	function header: double dylan(int jack):...
+	**identifiers must be declared before they can be used
+main() will always get run, if you want to use a function in main, you MUST write function before you write main()
+can declare functino headers all first and then write them in whatever order wanted later
