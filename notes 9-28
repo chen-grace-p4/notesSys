@@ -1,0 +1,7 @@
+big endian vs little endian system
+
+memory addresses
+	three key features to any variable in code
+	1. the identifier: name you use in code to refer to the variable
+	2. the value: data stored in the variable
+	3. the address: the location of data in memory
