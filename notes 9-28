@@ -5,3 +5,18 @@ memory addresses
 	1. the identifier: name you use in code to refer to the variable
 	2. the value: data stored in the variable
 	3. the address: the location of data in memory
+memory computer can store depends on processor (64 bit, 32 bit, 16 bit)
+	bit means number of inputs it can read at once and processes
+	32 bit hardware has a memory cap of 4 gb RAM
+	address space of a program determined by the OS (can be different everytime)
+	you can get address of any variable using the ADDRESS OF OPERATOR: &
+	
+%p is placeholder for memory address
+memory can be obtained with &x where x is the name of the variable
+memory addresses usally hexadecimal since its a big number
+cant use int for memory addresses???
+
+hhd -> print it as decimal integer or something
+pointers designed to store memory addresses, unlike regular variables that store values
+pointers natively unsigned
+int *p = &x; or int* p = &x
