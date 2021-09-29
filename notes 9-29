@@ -1,0 +1,22 @@
+good to always include:
+#include <stdio.h>
+#include <stdlib.h>
+
+**important to keep in mind that function header in both the .c and .h files should be the same
+if you add (include "filename.h" to the "filename.c"), it will then recognize conflicting types ****
+might cause multiple declarations of the same functions
+
+to get error and know problem:
+#ifndef EULER_H
+#define EULER_H
+ {function headers for euler.c}
+#endif
+
+AND
+
+include "filename.h" to "filename.c"
+------------------------------------------
+pointers:
+int *p = &x
+
+0 is false so if you want to see if pointer exists, see if pointer is 0 (original)
