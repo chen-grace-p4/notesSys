@@ -60,7 +60,20 @@ struct foo * make_foo(int i, char c) {
 	n.a = i;
 	n.x = c;
 	return &n;
+	//***WARNING WHEN RETURNING &n "function returns address of local variable" ***//
+	//** because it uses stack memory vs. heap memory?
+	// when function ends, you cant reference any local variable declared inside it
+	// you cant even when using POINTERS.
 }
+/**
+struct foo make_foo(int i, char c) {
+	struct foo n;
+	n.a = i;
+	n.x = c;
+	return n;
+	//WORKS BUT IT'S ALOT OF COPIES
+}
+**/
 
 
 
