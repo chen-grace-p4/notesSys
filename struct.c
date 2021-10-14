@@ -12,8 +12,9 @@ void printfoo(struct foo *f);
 struct foo * make_foo(int i, char c);
 
 int main() {
-	//struct foo h = make_foo(100, 'q');
-	//printfoo(&h);
+	struct foo h = make_foo(100, 'q');
+	printfoo(h);
+	free(h)
 	/*
 	The above^^ seems fine BUT IS NOT FINE.
 	This is because it is making too many copies and is not efficient enough.
@@ -54,7 +55,7 @@ void printfoo(struct foo *f) {
 	printf("int: %d \t char: %c \n", f->a, f->x);
 	
 }
-
+/**
 struct foo * make_foo(int i, char c) {
 	struct foo n;
 	n.a = i;
@@ -65,6 +66,7 @@ struct foo * make_foo(int i, char c) {
 	// when function ends, you cant reference any local variable declared inside it
 	// you cant even when using POINTERS.
 }
+*/
 /**
 struct foo make_foo(int i, char c) {
 	struct foo n;
@@ -74,6 +76,16 @@ struct foo make_foo(int i, char c) {
 	//WORKS BUT IT'S ALOT OF COPIES
 }
 **/
+
+struct foo * make_foo(int i, char c) {
+	struct foo *n;
+	n = malloc(sizeof(struct foo));
+	
+	n->a = i;
+	n->x = c;
+	
+	return n;
+}
 
 
 
