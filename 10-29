@@ -6,3 +6,14 @@ append: 8
 rdwr: 2
 creat: 512
 fd: 3
+
+0666 is rw-rw-rw
+0644 is rw-r--r--
+
+umask - <sys/stat.h>
+	sets file creation permission mask to change all three columns of permissions?
+	created files not given exact permissions provided in the mode argument to open
+	new_permissions = ~mask & mode
+	linus default mask is 0002
+	mask (these are the things turning off instead of what to turn on?)
+
