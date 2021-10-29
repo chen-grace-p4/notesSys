@@ -1,0 +1,8 @@
+rdonly : 0
+wronly: 1
+trunc: 1024
+append: 8
+	means to directly go to end of the file (to add to end of file)
+rdwr: 2
+creat: 512
+fd: 3
