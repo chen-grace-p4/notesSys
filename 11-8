@@ -3,3 +3,11 @@ Processes
 - a process can create subprocesses, but these are no different from regular processes
 - a processor can handle 1 process per cycle (per core)
 - multitasking appears to happen because the processor switches between all the active processes quickly.
+
+pid
+- every process has a unique identifier called the pid
+- pid 1 is in the init core process
+- getpid() - <unistd.h>
+	returns the current process' pid as int
+- getppid() - <unistd.h>
+	returns the current process' parent pid
