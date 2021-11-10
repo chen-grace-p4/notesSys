@@ -1,1 +1,0 @@
-in C, no difference between a node and a linked list?

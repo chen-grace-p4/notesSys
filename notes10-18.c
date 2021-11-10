@@ -45,14 +45,13 @@ int main() {
    return 0;
 }
 
-struct menu * make_menu(char* food, double price, int amount, struct menu* next) {
+struct menu * make_menu(char* food, double price, int amount) {
 	struct menu *n;
 	n = malloc(sizeof(struct menu));
 
 	strncpy(n->food, food, 100);
 	n->price = price;
    n->amount = amount;
-   n->next = next;
 
 	return n;
 }
@@ -69,7 +68,7 @@ void print_list(struct menu* current) {
 }
 
 struct menu * insert_front(struct menu * current, char* new_f, double new_p, int new_a) {
-   struct menu * new = make_menu(new_f, new_p, new_a, NULL);
+   struct menu * new = make_menu(new_f, new_p, new_a);
    new->next = current;
    return new;
 }
